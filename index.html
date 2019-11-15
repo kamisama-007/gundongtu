@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>FPX牛逼！！！</title>
+	<link rel="stylesheet" type="text/css" href="untitled.css">
+</head>
+<body>
+    <div class="box">
+    	<ul id="lunbotu">
+    		<li class="images"><img src="download-1.jpg"></li>
+    		<li class="images"><img src="download-2.jpg"></li>
+    		<li class="images"><img src="download-3.jpg"></li>
+    		<li class="images"><img src="download-4.jpg"></li>
+    		<li class="images"><img src="download-5.jpg"></li>
+    		<li class="images"><img src="download-1.jpg"></li>
+    	</ul>
+        	<ul id="dian">
+    		<li class="kuai">涤魂圣枪赛娜！</li>
+    		<li class="kuai">庆祝FPX夺得冠军！</li>
+    		<li class="kuai">奇亚娜 至臻！</li>
+    		<li class="kuai">云顶之奕第二赛季！</li>
+    		<li class="kuai">真实伤害出道！</li>
+    	</ul>
+    </div>
+
+
+    <script> 
+
+    	var imgs=document.getElementsByClassName("images");
+    	var icons=document.getElementsByClassName("kuai");
+
+    	var left=0;
+    	 lunbotu.style.marginLeft=left+"px";
+    	var timer;
+        run();
+    	function run(){
+    		if (left<=-4000) {
+    			lunbotu.style.marginLeft="0px";
+    			left=0;
+    		}
+    	    var n=(left%800==0)?2000:10;
+            console.log("n="+n);
+    		changeimg();
+    		var m=Math.floor(-left/800);
+            changeicon(m);
+    		left-=10;
+            timer=setTimeout("run()",n);
+    	}
+
+    	
+    	function changeimg(){
+    		lunbotu.style.marginLeft=left+"px";
+
+    	}
+
+    	function changeicon(m){
+    		for(var i=0;i<icons.length;i++){
+    			icons[i].style.backgroundColor="";
+    		}
+    		icons[m].style.backgroundColor="#fff";
+    	}
+    	for (var i = 0; i < icons.length; i++) {
+    		(function(i){
+    			icons[i].onmousemove=function(){
+    				clearTimeout(timer);
+    				left=-i*800;
+    				changeimg();
+    				changeicon(i);
+    			}
+    			icons[i].onmouseout=function(){
+    				run();
+                }
+    			})(i)
+    	}
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
